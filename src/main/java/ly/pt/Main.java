@@ -20,7 +20,8 @@ public class Main {
         Transaction transaction = session.beginTransaction();
 
         /*session.save(student);*/
-        session.update(student);
+        /*session.update(student);*/
+        /*session.delete("1", student);*/
         transaction.commit();
 
         session.close();
