@@ -2,6 +2,7 @@ package ly.pt;
 
 import ly.pt.config.FactoryConfigeration;
 import ly.pt.embed.FullName;
+import ly.pt.entity.Parent;
 import ly.pt.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -20,12 +21,21 @@ public class Main {
         student.setName(fullName);
         student.setAddress("Gampaha");
 
+        Parent parent = new Parent();
+        parent.setId(1);
+        parent.setName("Udara San");
+        parent.setAddress("Panadura");
+
         Transaction transaction = session.beginTransaction();
+
+        session.save(parent);
 
         //session.save(student);
         /*session.update(student);*/
         /*session.delete("1", student);*/
         Student student1 = (Student) session.get(Student.class, "2");
+
+
         transaction.commit();
         System.out.println(student1);
 

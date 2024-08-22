@@ -1,5 +1,6 @@
 package ly.pt.config;
 
+import ly.pt.entity.Parent;
 import ly.pt.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,7 +11,9 @@ public class FactoryConfigeration {
     private SessionFactory sessionFactory;
 
     private FactoryConfigeration(){
-        Configuration configuration = new Configuration().configure().addAnnotatedClass(Student.class);
+        Configuration configuration = new Configuration().configure();
+        configuration.addAnnotatedClass(Student.class);
+        configuration.addAnnotatedClass(Parent.class);
         sessionFactory = configuration.buildSessionFactory();
     }
 
