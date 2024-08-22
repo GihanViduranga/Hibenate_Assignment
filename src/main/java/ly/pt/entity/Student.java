@@ -1,8 +1,12 @@
 package ly.pt.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import ly.pt.embed.FullName;
 
+@Entity
 public class Student {
+    @Id
     private int studentId;
     private FullName name;
     private String address;

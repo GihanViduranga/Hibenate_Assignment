@@ -9,18 +9,18 @@ import org.hibernate.Transaction;
 public class Main {
     public static void main(String[] args) {
         Session session = FactoryConfigeration.getInstance().getSession();
-        FullName fullName = new FullName();
-        fullName.setFirstName("Gihan");
-        fullName.setLastName("Viduranga");
+        FullName fullName = new FullName("Gihan","Viduranga");
+
 
         Student student = new Student();
         student.setStudentId(1);
         student.setName(fullName);
-        student.setAddress("Wadduwa");
+        student.setAddress("Mastiya");
 
         Transaction transaction = session.beginTransaction();
 
-        session.save(student);
+        /*session.save(student);*/
+        session.update(student);
         transaction.commit();
 
         session.close();
